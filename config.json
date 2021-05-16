@@ -6,22 +6,26 @@
 			{
 				"name": "alice",
 				"wsPort": 9944,
-				"port": 30444
+				"port": 30444,
+				"flags": ["--ws-external", "--rpc-external", "--rpc-cors=all"]
 			},
 			{
 				"name": "bob",
 				"wsPort": 9955,
-				"port": 30555
+				"port": 30555,
+				"flags": ["--ws-external", "--rpc-external", "--rpc-cors=all"]
 			},
 			{
 				"name": "charlie",
 				"wsPort": 9966,
-				"port": 30666
+				"port": 30666,
+				"flags": ["--ws-external", "--rpc-external", "--rpc-cors=all"]
 			},
 			{
 				"name": "dave",
 				"wsPort": 9977,
-				"port": 30777
+				"port": 30777,
+				"flags": ["--ws-external", "--rpc-external", "--rpc-cors=all"]
 			}
 		],
 		"genesis": {
@@ -47,7 +51,7 @@
 					"wsPort": 9988,
 					"port": 31200,
 					"name": "alice",
-					"flags": ["--force-authoring", "--", "--execution=wasm"]
+					"flags": ["--force-authoring", "--ws-external", "--rpc-external", "--rpc-cors=all", "--", "--execution=wasm"]
 				}
 			]
 		},
@@ -60,24 +64,23 @@
 					"wsPort": 9999,
 					"port": 31300,
 					"name": "alice",
-					"flags": ["--force-authoring", "--", "--execution=wasm"]
+					"flags": ["--force-authoring", "--ws-external", "--rpc-external", "--rpc-cors=all", "--", "--execution=wasm"]
 				}
 			]
 		}
 	],
 	"simpleParachains": [
-		{
-			"bin": "./bin/adder-collator",
-			"id": "400",
-			"port": "31400",
-			"name": "alice",
-			"balance": "1000000000000000000000"
-		}
 	],
 	"hrmpChannels": [
 		{
-			"sender": 200,
-			"recipient": 300,
+			"sender": 3000,
+			"recipient": 4000,
+			"maxCapacity": 8,
+			"maxMessageSize": 512
+		},
+		{
+			"sender": 4000,
+			"recipient": 3000,
 			"maxCapacity": 8,
 			"maxMessageSize": 512
 		}
