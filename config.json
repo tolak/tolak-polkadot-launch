@@ -43,8 +43,8 @@
 	},
 	"parachains": [
 		{
-			"bin": "./bin/polkadot-collator",
-			"id": "200",
+			"bin": "./bin/rococo-collator",
+			"id": "2001",
 			"balance": "1000000000000000000000",
 			"nodes": [
 				{
@@ -56,8 +56,8 @@
 			]
 		},
 		{
-			"bin": "./bin/polkadot-collator",
-			"id": "300",
+			"bin": "./bin/rococo-collator",
+			"id": "2002",
 			"balance": "1000000000000000000000",
 			"nodes": [
 				{
@@ -73,14 +73,14 @@
 	],
 	"hrmpChannels": [
 		{
-			"sender": 3000,
-			"recipient": 4000,
+			"sender": 2001,
+			"recipient": 2002,
 			"maxCapacity": 8,
 			"maxMessageSize": 512
 		},
 		{
-			"sender": 4000,
-			"recipient": 3000,
+			"sender": 2002,
+			"recipient": 2001,
 			"maxCapacity": 8,
 			"maxMessageSize": 512
 		}

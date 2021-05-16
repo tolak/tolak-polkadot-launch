@@ -92,8 +92,7 @@ async function main() {
 			config.relaychain.runtime_genesis_config
 		);
 	}
-	if (!runAsParathread)
-		await addParachainsToGenesis(`${chain}.json`, config.parachains);
+	await addParachainsToGenesis(`${chain}.json`, config.parachains);
 	await addHrmpChannelsToGenesis(`${chain}.json`, config.hrmpChannels);
 	// -- End Chain Spec Modify --
 	await generateChainSpecRaw(relay_chain_bin, chain);
