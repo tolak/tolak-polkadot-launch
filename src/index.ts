@@ -149,7 +149,7 @@ async function main() {
 			console.log(`------ Write genesis data of parathread ${id} into file header-${id} ------`);
 			fs.writeFileSync(`hearder-${id}`, genesisState);
 			console.log(`------ Write wasm data of parathread ${id} into file wams-${id}.wasm ------`);
-			fs.writeFileSync(`hearder-${id}`, genesisWasm);
+			fs.writeFileSync(`wasm-${id}`, genesisWasm);
 
 			// await registerParathread(
 			// 	relayChainApi,
