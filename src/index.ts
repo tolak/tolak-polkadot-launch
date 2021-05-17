@@ -146,8 +146,8 @@ async function main() {
 				process.exit(1);
 			}
 
-			console.log(`------ Write genesis data of parathread ${id} into file header-${id} ------`);
-			fs.writeFileSync(`hearder-${id}`, genesisState);
+			console.log(`------ Write genesis data of parathread ${id} into file genesis-${id} ------`);
+			fs.writeFileSync(`genesis-${id}`, genesisState);
 			console.log(`------ Write wasm data of parathread ${id} into file wams-${id}.wasm ------`);
 			fs.writeFileSync(`wasm-${id}`, genesisWasm);
 
