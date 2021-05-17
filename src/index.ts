@@ -146,11 +146,10 @@ async function main() {
 				process.exit(1);
 			}
 
-			console.log(`------ Got Hearder and WASM data to register Parathread ${id} ------`);
-			console.log('------Header:');
-			console.log(genesisState);
-			console.log('------WASM:');
-			console.log(genesisWasm);
+			console.log(`------ Write genesis data of parathread ${id} into file header-${id} ------`);
+			fs.writeFileSync(`hearder-${id}`, genesisState);
+			console.log(`------ Write wasm data of parathread ${id} into file wams-${id}.wasm ------`);
+			fs.writeFileSync(`hearder-${id}`, genesisWasm);
 
 			// await registerParathread(
 			// 	relayChainApi,
