@@ -146,14 +146,19 @@ async function main() {
 				process.exit(1);
 			}
 
-			console.log(`Registering Parathread ${id}`);
-			await registerParathread(
-				relayChainApi,
-				id,
-				genesisWasm,
-				genesisState,
-				config.finalization
-			);
+			console.log(`------ Got Hearder and WASM data to register Parathread ${id} ------`);
+			console.log('------Header:');
+			console.log(genesisState);
+			console.log('------WASM:');
+			console.log(genesisWasm);
+
+			// await registerParathread(
+			// 	relayChainApi,
+			// 	id,
+			// 	genesisWasm,
+			// 	genesisState,
+			// 	config.finalization
+			// );
 		}
 
 		// Allow time for the TX to complete, avoiding nonce issues.
