@@ -151,19 +151,19 @@ async function main() {
 			console.log(`------ Write wasm data of parathread ${id} into file wams-${id}.wasm ------`);
 			fs.writeFileSync(`wasm-${id}`, genesisWasm);
 
-			// await registerParathread(
-			// 	relayChainApi,
-			// 	id,
-			// 	genesisWasm,
-			// 	genesisState,
-			// 	config.finalization
-			// );
+			await registerParathread(
+				relayChainApi,
+				id,
+				genesisWasm,
+				genesisState,
+				config.finalization
+			);
 		}
 
 		// Allow time for the TX to complete, avoiding nonce issues.
 		// TODO: Handle nonce directly instead of this.
 		if (balance) {
-			// await setBalance(relayChainApi, account, balance, config.finalization);
+			await setBalance(relayChainApi, account, balance, config.finalization);
 		}
 	}
 
