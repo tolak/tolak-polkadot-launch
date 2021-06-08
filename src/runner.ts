@@ -126,6 +126,33 @@ export async function run(config_dir: string, rawConfig: LaunchConfig) {
 			);
 		}
 
+        // Get the information required to register the parachain on the relay chain.
+        let genesisState;
+        let genesisWasm;
+        try {
+            // adder-collator does not support `--parachain-id` for export-genesis-state (and it is
+            // not necessary for it anyway), so we don't pass it here.
+            genesisState = await exportGenesisState(bin);
+            genesisWasm = await exportGenesisWasm(bin);
+        } catch (err) {
+            console.error(err);
+            process.exit(1);
+        }
+
+        console.log(`------ Write genesis data of parathread ${id} into file genesis-${id} ------`);
+        fs.writeFileSync(`genesis-${id}`, genesisState);
+        console.log(`------ Write wasm data of parathread ${id} into file wasm-${id}.wasm ------`);
+        fs.writeFileSync(`wasm-${id}.wasm`, genesisWasm);
+
+        console.log(`Registering Parathread ${id}`);
+        await registerParathread(
+            relayChainApi,
+            id,
+            genesisWasm,
+            genesisState,
+            config.finalization
+        );
+
 		// Allow time for the TX to complete, avoiding nonce issues.
 		// TODO: Handle nonce directly instead of this.
 		if (balance) {
