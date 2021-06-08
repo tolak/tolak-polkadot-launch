@@ -73,10 +73,8 @@ export async function run(config_dir: string, rawConfig: LaunchConfig) {
 	if (config.relaychain.genesis) {
 		await changeGenesisConfig(`${chain}.json`, config.relaychain.genesis);
 	}
-	await addParachainsToGenesis(config_dir, `${chain}.json`, config.parachains, config.simpleParachains);
-	if (config.hrmpChannels) {
-		await addHrmpChannelsToGenesis(`${chain}.json`, config.hrmpChannels);
-	}
+	// await addParachainsToGenesis(config_dir, `${chain}.json`, config.parachains);
+	await addHrmpChannelsToGenesis(`${chain}.json`, config.hrmpChannels);
 	// -- End Chain Spec Modify --
 	await generateChainSpecRaw(relay_chain_bin, chain);
 	const spec = resolve(`${chain}-raw.json`);
@@ -145,13 +143,13 @@ export async function run(config_dir: string, rawConfig: LaunchConfig) {
         fs.writeFileSync(`wasm-${id}.wasm`, genesisWasm);
 
         console.log(`Registering Parathread ${id}`);
-        await registerParathread(
-            relayChainApi,
-            id,
-            genesisWasm,
-            genesisState,
-            config.finalization
-        );
+        // await registerParathread(
+        //     relayChainApi,
+        //     id,
+        //     genesisWasm,
+        //     genesisState,
+        //     config.finalization
+        // );
 
 		// Allow time for the TX to complete, avoiding nonce issues.
 		// TODO: Handle nonce directly instead of this.
