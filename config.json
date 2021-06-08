@@ -1,7 +1,7 @@
 {
 	"relaychain": {
 		"bin": "./bin/polkadot",
-		"chain": "kusama-local",
+		"chain": "rococo-local",
 		"nodes": [
 			{
 				"name": "alice",
@@ -26,7 +26,20 @@
 				"wsPort": 9977,
 				"port": 30777,
 				"flags": ["--ws-external", "--rpc-external", "--rpc-cors=all"]
+			},
+			{
+				"name": "eve",
+				"wsPort": 9988,
+				"port": 30888,
+				"flags": ["--ws-external", "--rpc-external", "--rpc-cors=all"]
+			},
+			{
+				"name": "ferdie",
+				"wsPort": 9999,
+				"port": 30999,
+				"flags": ["--ws-external", "--rpc-external", "--rpc-cors=all"]
 			}
+
 		],
 		"genesis": {
 			"runtime": {
@@ -48,8 +61,8 @@
 			"balance": "1000000000000000000000",
 			"nodes": [
 				{
-					"wsPort": 9988,
-					"port": 31200,
+					"wsPort": 9111,
+					"port": 31100,
 					"name": "alice",
 					"flags": ["--force-authoring", "--ws-external", "--rpc-external", "--rpc-cors=all", "--", "--execution=wasm"]
 				}
@@ -61,9 +74,45 @@
 			"balance": "1000000000000000000000",
 			"nodes": [
 				{
-					"wsPort": 9999,
-					"port": 31300,
+					"wsPort": 9222,
+					"port": 32200,
 					"name": "alice",
+					"flags": ["--force-authoring", "--ws-external", "--rpc-external", "--rpc-cors=all", "--", "--execution=wasm"]
+				}
+			]
+        },
+        {
+			"bin": "./bin/polkadot-collator",
+			"id": "2002",
+			"balance": "1000000000000000000000",
+			"nodes": [
+				{
+					"wsPort": 9333,
+					"port": 33300,
+					"flags": ["--force-authoring", "--ws-external", "--rpc-external", "--rpc-cors=all", "--", "--execution=wasm"]
+				}
+			]
+		},
+		{
+			"bin": "./bin/polkadot-collator",
+			"id": "2003",
+			"balance": "1000000000000000000000",
+			"nodes": [
+				{
+					"wsPort": 9444,
+					"port": 34400,
+					"flags": ["--force-authoring", "--ws-external", "--rpc-external", "--rpc-cors=all", "--", "--execution=wasm"]
+				}
+			]
+        },
+        {
+			"bin": "./bin/polkadot-collator",
+			"id": "2004",
+			"balance": "1000000000000000000000",
+			"nodes": [
+				{
+					"wsPort": 9555,
+					"port": 35500,
 					"flags": ["--force-authoring", "--ws-external", "--rpc-external", "--rpc-cors=all", "--", "--execution=wasm"]
 				}
 			]
