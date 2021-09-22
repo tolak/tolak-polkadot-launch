@@ -64,7 +64,7 @@
 					"wsPort": 9111,
 					"port": 31100,
 					"name": "alice",
-					"flags": ["--force-authoring", "--ws-external", "--rpc-external", "--rpc-cors=all", "--", "--execution=wasm"]
+					"flags": ["--force-authoring", "--ws-external", "--rpc-external", "--rpc-cors=all", "--rpc-methods=Unsafe", "--", "--execution=wasm"]
 				}
 			]
 		},
@@ -77,7 +77,7 @@
 					"wsPort": 9222,
 					"port": 32200,
 					"name": "alice",
-					"flags": ["--force-authoring", "--ws-external", "--rpc-external", "--rpc-cors=all", "--", "--execution=wasm"]
+					"flags": ["--force-authoring", "--ws-external", "--rpc-external", "--rpc-cors=all", "--rpc-methods=Unsafe", "--", "--execution=wasm"]
 				}
 			]
         },
@@ -89,7 +89,7 @@
 				{
 					"wsPort": 9333,
 					"port": 33300,
-					"flags": ["--force-authoring", "--ws-external", "--rpc-external", "--rpc-cors=all", "--", "--execution=wasm"]
+					"flags": ["--force-authoring", "--ws-external", "--rpc-external", "--rpc-cors=all", "--rpc-methods=Unsafe", "--", "--execution=wasm"]
 				}
 			]
 		},
@@ -101,7 +101,7 @@
 				{
 					"wsPort": 9444,
 					"port": 34400,
-					"flags": ["--force-authoring", "--ws-external", "--rpc-external", "--rpc-cors=all", "--", "--execution=wasm"]
+					"flags": ["--force-authoring", "--ws-external", "--rpc-external", "--rpc-cors=all", "--rpc-methods=Unsafe", "--", "--execution=wasm"]
 				}
 			]
         },
@@ -113,7 +113,7 @@
 				{
 					"wsPort": 9555,
 					"port": 35500,
-					"flags": ["--force-authoring", "--ws-external", "--rpc-external", "--rpc-cors=all", "--", "--execution=wasm"]
+					"flags": ["--force-authoring", "--ws-external", "--rpc-external", "--rpc-cors=all", "--rpc-methods=Unsafe", "--", "--execution=wasm"]
 				}
 			]
 		}
